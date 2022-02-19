@@ -1,5 +1,5 @@
 <template>
-  <section class="center">
+  <section>
     <div class="characters">
       <div class="characters__item" v-for="character in characters" :key="character.id">
         <card-characters :character="character"/>
@@ -33,7 +33,8 @@ export default {
 <style>
 .characters {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin: 3rem 0;
 }
 </style>

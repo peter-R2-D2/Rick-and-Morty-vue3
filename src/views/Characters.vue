@@ -1,7 +1,8 @@
 <template>
-  <h1 class="title">Characters</h1>
   <div class="home">
+    <h1 class="title">Characters</h1>
     <FilterByStatus />
+    <FilterByName />
     <list-characters />
   </div>
 </template>
@@ -9,23 +10,25 @@
 <script>
 import ListCharacters from '@/components/ListCharacters.vue'
 import FilterByStatus from '@/components/FilterByStatus.vue'
+import FilterByName from '@/components/FilterByName.vue'
 
 export default {
-  name: 'Home',
+  name: 'Characters',
   components: {
     ListCharacters,
-    FilterByStatus
+    FilterByStatus,
+    FilterByName
   }
 }
 </script>
 
 <style>
 .title {
-  color: #2f71e8ff;
   text-align: center;
-  margin-bottom: 40px;
+  padding: 40px 0;
 }
 .home {
-  margin-left: 20px;
+  margin: 0 10px;
+  overflow: hidden;
 }
 </style>

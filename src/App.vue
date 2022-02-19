@@ -1,10 +1,21 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Characters</router-link> |
-    <router-link to="/about">Location</router-link>
+  <SideBar />
+  <div :style="{ 'margin-left': sidebarWidth}">
+    <router-view/>
   </div>
-  <router-view/>
 </template>
+
+<script>
+import SideBar from '@/components/Sidebar/SideBar.vue'
+import { sidebarWidth } from '@/components/Sidebar/state'
+
+export default {
+  components: { SideBar },
+  setup () {
+    return { sidebarWidth }
+  }
+}
+</script>
 
 <style>
 *, *::after, *::before {
@@ -21,18 +32,5 @@ img {
   -moz-osx-font-smoothing: grayscale;
   color: #fff;
   background-color: #111213ff;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>
