@@ -7,12 +7,13 @@
       </span>
       <span v-else>Pedro Farias</span>
     </h1>
+
     <SideBarLinks to="/" icon="person" size="lg">Characters</SideBarLinks>
     <SideBarLinks to="/locations" icon="location-dot" size="lg">Locations</SideBarLinks>
-    <SideBarLinks to="/episodes" icon="circle-play" size="lg">Episodes</SideBarLinks>
+    <SideBarLinks to="/episodes" icon="camera" size="lg">Episodes</SideBarLinks>
 
     <span class="collapsed-icon" :class="{ 'rotate-180': collapsed}" @click="toggleSidebar">
-      <font-icon icon="angles-right" />
+      <font-icon icon="angles-left" />
     </span>
   </div>
 </template>
@@ -51,6 +52,7 @@ export default {
   flex-direction: column;
 }
 .collapsed-icon {
+  cursor: pointer;
   position: absolute;
   bottom: 0;
   padding: 0.75em;

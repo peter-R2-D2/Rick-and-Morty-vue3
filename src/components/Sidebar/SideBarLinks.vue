@@ -1,6 +1,6 @@
 <template>
   <router-link :to="to" class="link" :class="{ active: isActive }">
-    <font-icon class="icon" :icon="icon" size="size"/>
+    <font-icon class="icon" :icon="icon" :size="size"/>
     <transition name="fade">
       <span v-if="!collapsed">
         <slot />
@@ -44,10 +44,10 @@ export default {
   cursor: pointer;
   font-weight: 400;
   user-select: none;
-  margin: 0.1em 0;
+  margin: 0.3rem 0;
   padding: 0.4em;
   border-radius: 0.25em;
-  height: 1.5em;
+  height: 2rem;
   color: white;
   text-decoration: none;
 }
@@ -58,7 +58,6 @@ export default {
   background-color: #29b9f0ff;
 }
 .link .icon {
-  width: 30px;
   margin-right: 10px;
 }
 </style>
