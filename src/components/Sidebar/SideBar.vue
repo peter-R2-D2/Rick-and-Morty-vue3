@@ -1,11 +1,18 @@
 <template>
   <div class="sidebar" :style="{ width: sidebarWidth }">
-    <SideBarLinks to="/">Characters</SideBarLinks>
-    <SideBarLinks to="/locations">Locations</SideBarLinks>
-    <SideBarLinks to="/episodes">Episodes</SideBarLinks>
+    <h1 class="title">
+      <span v-if="collapsed">
+        <div>P</div>
+        <div>F</div>
+      </span>
+      <span v-else>Pedro Farias</span>
+    </h1>
+    <SideBarLinks to="/" icon="person" size="lg">Characters</SideBarLinks>
+    <SideBarLinks to="/locations" icon="location-dot" size="lg">Locations</SideBarLinks>
+    <SideBarLinks to="/episodes" icon="circle-play" size="lg">Episodes</SideBarLinks>
 
     <span class="collapsed-icon" :class="{ 'rotate-180': collapsed}" @click="toggleSidebar">
-      +
+      <font-icon icon="angles-right" />
     </span>
   </div>
 </template>
@@ -26,20 +33,20 @@ export default {
 </script>
 
 <style>
+.title {
+  margin-bottom: 5px;
+}
 .sidebar {
   color: white;
   background-color: #212224ff;
-
   float: left;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
   bottom: 0;
-  padding: 0.5em;
-
+  padding: 0.5rem;
   transition: 0.3s ease;
-
   display: flex;
   flex-direction: column;
 }

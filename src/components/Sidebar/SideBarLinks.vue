@@ -1,5 +1,6 @@
 <template>
   <router-link :to="to" class="link" :class="{ active: isActive }">
+    <font-icon class="icon" :icon="icon" size="size"/>
     <transition name="fade">
       <span v-if="!collapsed">
         <slot />
@@ -15,7 +16,9 @@ import { collapsed } from './state'
 
 export default {
   props: {
-    to: { type: String, required: true }
+    to: { type: String, required: true },
+    icon: { type: String, required: true },
+    size: { type: String, required: true }
   },
   setup (props) {
     const route = useRoute()
@@ -53,5 +56,9 @@ export default {
 }
 .link.active {
   background-color: #29b9f0ff;
+}
+.link .icon {
+  width: 30px;
+  margin-right: 10px;
 }
 </style>
