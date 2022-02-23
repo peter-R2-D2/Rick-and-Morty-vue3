@@ -44,8 +44,8 @@ export default {
   cursor: pointer;
   font-weight: 400;
   user-select: none;
-  margin: 0.3rem 0;
-  padding: 0.4em;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
   border-radius: 0.25em;
   height: 2rem;
   color: white;

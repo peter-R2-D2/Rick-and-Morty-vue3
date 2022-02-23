@@ -3,7 +3,9 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     characters: [],
-    charactersFilter: []
+    charactersFilter: [],
+    locations: [],
+    locationsFilter: []
   },
   mutations: {
     setCharacters (state, payload) {
@@ -11,6 +13,12 @@ export default createStore({
     },
     setCharactersFilter (state, payload) {
       state.charactersFilter = payload
+    },
+    setLocations (state, payload) {
+      state.locations = payload
+    },
+    setLocationsFilter (state, payload) {
+      state.locationsFilter = payload
     }
   },
   actions: {
@@ -41,6 +49,17 @@ export default createStore({
         }
       })
       commit('setCharactersFilter', results)
+    },
+    async getLocations ({ commit }) {
+      try {
+        const locationsUrl = 'https://rickandmortyapi.com/api/location'
+        const response = await fetch(locationsUrl)
+        const data = await response.json()
+        commit('setLocations', data.results)
+        commit('setLocationsFilter', data.results)
+      } catch (error) {
+        console.error(error)
+      }
     }
   },
   modules: {
