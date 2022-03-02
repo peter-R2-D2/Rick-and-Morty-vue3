@@ -5,7 +5,9 @@ export default createStore({
     characters: [],
     charactersFilter: [],
     locations: [],
-    locationsFilter: []
+    locationsFilter: [],
+    episodes: [],
+    episodesFilter: []
   },
   mutations: {
     setCharacters (state, payload) {
@@ -57,6 +59,16 @@ export default createStore({
         const data = await response.json()
         commit('setLocations', data.results)
         commit('setLocationsFilter', data.results)
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    async getEpisodes ({ commit }) {
+      try {
+        const episodesUrl = 'https://rickandmortyapi.com/api/episode'
+        const response = await fetch(episodesUrl)
+        const data = await response.json()
+        console.log(data)
       } catch (error) {
         console.error(error)
       }
